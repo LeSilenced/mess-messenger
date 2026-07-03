@@ -1,0 +1,21 @@
+{
+  "name": "mess-messenger",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "dev": "node scripts/dev.js",
+    "dev:legacy": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "predev:server": "node scripts/kill-port.js 3001",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "start:prod": "node scripts/start-prod.js",
+    "verify:mobile": "node scripts/verify-mobile.js",
+    "verify": "node scripts/verify-mobile.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

@@ -1,0 +1,93 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-app: #0e1621;
+  --bg-panel: #17212b;
+  --bg-hover: #1e2c3a;
+  --bg-input: #242f3d;
+  --bg-message-out: #2b5278;
+  --bg-message-in: #182533;
+  --accent: #5eb5f7;
+  --accent-hover: #4aa3e8;
+  --text: #f0f4f8;
+  --text-muted: #8b9bab;
+  --border: #1a2530;
+  --danger: #e85d75;
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --gradient-auth: radial-gradient(ellipse 80% 60% at 50% -10%, #1e3a5f 0%, #0e1621 55%);
+  --font-scale: 1;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg-app);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s ease, color 0.2s ease;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input,
+textarea {
+  border: none;
+  outline: none;
+  background: var(--bg-input);
+}
+
+.icon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: background 0.15s, color 0.15s, transform 0.1s;
+}
+
+.icon-btn:hover {
+  background: var(--bg-hover);
+  color: var(--accent);
+}
+
+.icon-btn:active {
+  transform: scale(0.94);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--text-muted) 40%, transparent);
+  border-radius: 3px;
+}

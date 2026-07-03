@@ -1,0 +1,39 @@
+.server-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  padding: 10px 16px;
+  background: #c0392b;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.app {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background: var(--bg-app);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .sidebar.mobile-hidden {
+    display: none;
+  }
+
+  .chat-back-btn {
+    display: inline-flex;
+  }
+}
+
+/* Детальная мобильная вёрстка — client/src/styles/mobile.css (класс html.is-mobile) */
+
+@media (min-width: 769px) {
+  .chat-back-btn {
+    display: none !important;
+  }
+}

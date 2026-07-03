@@ -1,0 +1,144 @@
+.gift-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.gift-modal {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-panel);
+  border-radius: calc(var(--radius) + 4px);
+  border: 1px solid var(--border);
+  padding: 20px;
+}
+
+.gift-modal header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.gift-balance {
+  font-size: 14px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.gift-error {
+  color: var(--danger);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.gift-catalog-img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.gift-item {
+  min-height: 140px;
+}
+
+.gift-crystal-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 4px 12px color-mix(in srgb, currentColor 45%, transparent));
+}
+
+.gift-crystal-wrap.large {
+  margin-bottom: 8px;
+}
+
+.gift-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-height: min(52vh, 420px);
+  overflow-y: auto;
+}
+
+.gift-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 10px;
+  border-radius: var(--radius);
+  background: var(--bg-hover);
+  transition: transform 0.15s;
+}
+
+.gift-item:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.gift-item:disabled {
+  opacity: 0.45;
+}
+
+.gift-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.gift-price {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.gift-back-link {
+  margin-right: 6px;
+  color: var(--accent);
+  font-size: 18px;
+}
+
+.gift-confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gift-confirm-preview {
+  text-align: center;
+  padding: 16px;
+  background: var(--bg-hover);
+  border-radius: var(--radius);
+}
+
+.gift-message-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.gift-message-field span:first-child {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.gift-message-field input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  font-size: 16px;
+}
+
+.gift-message-count {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.gift-send-btn {
+  padding: 14px;
+}

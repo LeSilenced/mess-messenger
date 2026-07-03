@@ -1,0 +1,56 @@
+.theme-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.theme-editor-colors {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 340px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.theme-color-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.theme-color-row > span {
+  color: var(--text-muted);
+}
+
+.theme-color-inputs {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.theme-color-inputs input[type='color'] {
+  width: 40px;
+  height: 36px;
+  padding: 2px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--bg-input);
+}
+
+.theme-color-text {
+  width: 88px;
+  padding: 6px 8px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+.theme-gradient-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 12px;
+  border-radius: var(--radius);
+}

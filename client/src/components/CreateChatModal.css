@@ -1,0 +1,64 @@
+.create-chat-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.create-chat-modal {
+  width: 100%;
+  max-width: 400px;
+  background: var(--bg-panel);
+  border-radius: calc(var(--radius) + 4px);
+  border: 1px solid var(--border);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.create-chat-modal header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.create-type-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.create-type-tabs button {
+  flex: 1;
+  padding: 10px;
+  border-radius: var(--radius);
+  background: var(--bg-hover);
+  font-weight: 500;
+}
+
+.create-type-tabs button.active {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--accent);
+}
+
+.create-error {
+  color: var(--danger);
+  font-size: 13px;
+}
+
+.create-chat-modal .field span {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.create-chat-modal input,
+.create-chat-modal textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  margin-top: 4px;
+}

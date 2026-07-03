@@ -1,0 +1,315 @@
+/**
+ * Мобильная версия Mess (≤768px)
+ * Класс .is-mobile на <html> выставляется хуком useIsMobile
+ */
+
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --mobile-header-h: 56px;
+  --mobile-composer-h: 64px;
+}
+
+html.is-mobile {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html.is-mobile body {
+  overscroll-behavior: none;
+  touch-action: manipulation;
+}
+
+/* Высота экрана с учётом панели браузера на телефоне */
+html.is-mobile,
+html.is-mobile body,
+html.is-mobile #root {
+  height: 100%;
+  height: 100dvh;
+  min-height: 100dvh;
+}
+
+html.is-mobile .app {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  padding-top: var(--safe-top);
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+}
+
+html.is-mobile .server-banner {
+  top: var(--safe-top);
+}
+
+/* ——— Список чатов (главный экран) ——— */
+html.is-mobile .sidebar {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  height: 100%;
+  border-right: none;
+}
+
+html.is-mobile .sidebar-header {
+  padding-top: max(10px, var(--safe-top));
+  padding-left: max(12px, var(--safe-left));
+  padding-right: max(8px, var(--safe-right));
+}
+
+html.is-mobile .sidebar-profile {
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: background 0.15s;
+}
+
+html.is-mobile .sidebar-profile:active {
+  background: var(--bg-hover);
+}
+
+html.is-mobile .icon-btn {
+  width: 44px;
+  height: 44px;
+}
+
+html.is-mobile .sidebar-tabs button {
+  padding: 10px 8px;
+  font-size: 14px;
+  min-height: 44px;
+}
+
+html.is-mobile .chat-item,
+html.is-mobile .user-row-main {
+  min-height: 56px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+html.is-mobile .user-row .icon-btn {
+  width: 44px;
+  height: 44px;
+}
+
+/* ——— Экран чата ——— */
+html.is-mobile .chat-window {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  width: 100%;
+  height: 100dvh;
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+  will-change: transform;
+}
+
+html.is-mobile .app.mobile-chat-open .chat-window {
+  display: flex;
+  transform: translateX(0);
+}
+
+html.is-mobile .chat-header {
+  padding: 8px 12px 8px 8px;
+  min-height: var(--mobile-header-h);
+  padding-top: max(8px, var(--safe-top));
+}
+
+html.is-mobile .chat-back-btn {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+html.is-mobile .messages-area {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 8px 10px 12px;
+}
+
+html.is-mobile .message-row:not(.channel-post) .message-bubble {
+  max-width: 88%;
+}
+
+html.is-mobile .chat-window.is-channel .message-row.channel-post {
+  max-width: 100%;
+}
+
+html.is-mobile .chat-window.is-channel .message-row.channel-post .message-bubble {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Действия с сообщением без hover (тач) */
+html.is-mobile .message-actions {
+  opacity: 1;
+}
+
+html.is-mobile .message-actions button {
+  width: 36px;
+  height: 36px;
+}
+
+html.is-mobile .composer {
+  padding: 10px 12px calc(12px + var(--safe-bottom));
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+html.is-mobile .composer textarea {
+  font-size: 16px; /* iOS не зумит при фокусе */
+  min-height: 44px;
+}
+
+html.is-mobile .send-btn,
+html.is-mobile .attach-btn {
+  width: 48px;
+  height: 48px;
+}
+
+html.is-mobile .msg-attachment-img img {
+  max-width: min(100%, 280px);
+  max-height: 240px;
+}
+
+/* ——— Настройки на весь экран ——— */
+html.is-mobile .settings-portal-overlay {
+  padding: 0;
+  align-items: stretch;
+}
+
+html.is-mobile .settings-portal-wrap {
+  max-width: none;
+  max-height: none;
+  height: 100%;
+  animation: mobileSlideIn 0.28s ease;
+}
+
+html.is-mobile .settings-panel.settings-panel-modal {
+  max-height: none;
+  height: 100dvh;
+  border-radius: 0;
+  border: none;
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+}
+
+@keyframes mobileSlideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+html.is-mobile .settings-header {
+  padding-left: max(8px, var(--safe-left));
+  padding-right: max(8px, var(--safe-right));
+}
+
+html.is-mobile .settings-layout {
+  flex-direction: column;
+  min-height: 0;
+}
+
+html.is-mobile .settings-nav-icons {
+  width: 100%;
+  min-width: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 4px;
+  padding: 8px 10px;
+  border-right: none;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+html.is-mobile .settings-nav-icon-btn {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+html.is-mobile .settings-content {
+  padding-bottom: calc(24px + var(--safe-bottom));
+}
+
+/* ——— Модальные окна ——— */
+html.is-mobile .profile-overlay,
+html.is-mobile .chat-settings-overlay,
+html.is-mobile .settings-portal-overlay,
+html.is-mobile .create-chat-overlay,
+html.is-mobile .gift-overlay,
+html.is-mobile .crop-overlay {
+  padding: 0;
+  align-items: stretch;
+  justify-content: stretch;
+  z-index: 3000;
+}
+
+html.is-mobile .profile-modal,
+html.is-mobile .chat-settings-modal,
+html.is-mobile .settings-panel.settings-panel-modal,
+html.is-mobile .create-chat-modal,
+html.is-mobile .gift-modal,
+html.is-mobile .crop-modal {
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  height: 100dvh;
+  border-radius: 0;
+  margin: 0;
+  padding-bottom: calc(20px + var(--safe-bottom));
+}
+
+html.is-mobile .profile-modal-top {
+  padding-top: max(12px, var(--safe-top));
+}
+
+html.is-mobile .profile-close {
+  width: 44px;
+  height: 44px;
+}
+
+/* ——— Авторизация ——— */
+html.is-mobile .auth-screen {
+  min-height: 100dvh;
+  padding: max(16px, var(--safe-top)) max(16px, var(--safe-right))
+    max(16px, var(--safe-bottom)) max(16px, var(--safe-left));
+  align-items: flex-start;
+  padding-top: max(32px, var(--safe-top));
+}
+
+html.is-mobile .auth-card {
+  padding: 28px 20px;
+  border-radius: var(--radius);
+}
+
+html.is-mobile .auth-form input {
+  font-size: 16px;
+  min-height: 48px;
+}
+
+html.is-mobile .auth-submit {
+  min-height: 48px;
+}
+
+/* ——— Истории ——— */
+html.is-mobile .stories-bar {
+  padding-left: max(12px, var(--safe-left));
+}
+
+/* Пустой чат на мобильном скрыт, пока не выбран диалог */
+html.is-mobile .chat-window.empty {
+  display: none !important;
+}
+
+html.is-mobile .app:not(.mobile-chat-open) .chat-window {
+  display: none;
+}

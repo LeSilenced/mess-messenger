@@ -1,0 +1,98 @@
+.crop-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.crop-modal {
+  width: 100%;
+  max-width: 400px;
+  background: var(--bg-panel);
+  border-radius: calc(var(--radius) + 4px);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.crop-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.crop-header h2 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.crop-save-text {
+  padding: 8px 16px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.crop-save-text:disabled {
+  opacity: 0.5;
+}
+
+.crop-hint {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 12px 16px 0;
+}
+
+.crop-viewport {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 16px auto;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #000;
+  cursor: grab;
+}
+
+.crop-viewport:active {
+  cursor: grabbing;
+}
+
+.crop-mask {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.crop-image {
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+  max-width: none;
+}
+
+.crop-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 24px 24px;
+}
+
+.crop-zoom-icon {
+  color: var(--text-muted);
+  transform: rotate(0deg);
+  opacity: 0.7;
+}
+
+.crop-controls .range {
+  flex: 1;
+}

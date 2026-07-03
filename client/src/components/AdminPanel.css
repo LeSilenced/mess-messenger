@@ -1,0 +1,118 @@
+.admin-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin-hint {
+  color: var(--text-muted);
+  padding: 12px 0;
+}
+
+.admin-row {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-row input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+}
+
+.alias-list {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.alias-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.alias-list span {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.admin-media-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.admin-gift-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.admin-gift-form input {
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  font-size: 14px;
+}
+
+.admin-gift-form .btn-primary {
+  grid-column: 1 / -1;
+}
+
+.admin-gifts-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-gifts-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.admin-gifts-list li.inactive {
+  opacity: 0.55;
+}
+
+.admin-gift-thumb {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.admin-gift-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.admin-gift-meta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+}
+
+.admin-gift-meta code {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.admin-gift-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
