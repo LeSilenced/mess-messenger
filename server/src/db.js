@@ -4,8 +4,9 @@ import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const dataDir = path.join(__dirname, '..', 'data');
-const uploadsDir = path.join(__dirname, '..', 'uploads', 'avatars');
+const VOLUME_DIR = process.env.RAILWAY_VOLUME_MOUNT_PATH || path.join(__dirname, '..');
+const dataDir = path.join(VOLUME_DIR, 'data');
+const uploadsDir = path.join(VOLUME_DIR, 'uploads', 'avatars');
 
 if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true });
@@ -133,8 +134,8 @@ try {
   /* ignore */
 }
 
-const filesDir = path.join(__dirname, '..', 'uploads', 'files');
-const storiesDir = path.join(__dirname, '..', 'uploads', 'stories');
+const filesDir = path.join(VOLUME_DIR, 'uploads', 'files');
+const storiesDir = path.join(VOLUME_DIR, 'uploads', 'stories');
 if (!fs.existsSync(filesDir)) fs.mkdirSync(filesDir, { recursive: true });
 if (!fs.existsSync(storiesDir)) fs.mkdirSync(storiesDir, { recursive: true });
 
@@ -242,9 +243,9 @@ raw.exec(`
   CREATE INDEX IF NOT EXISTS idx_user_sessions_user ON user_sessions(user_id, last_active_at);
 `);
 
-const giftsDir = path.join(__dirname, '..', 'uploads', 'gifts');
-const profileMediaDir = path.join(__dirname, '..', 'uploads', 'profile_media');
-const chatAvatarsDir = path.join(__dirname, '..', 'uploads', 'chat_avatars');
+const giftsDir = path.join(VOLUME_DIR, 'uploads', 'gifts');
+const profileMediaDir = path.join(VOLUME_DIR, 'uploads', 'profile_media');
+const chatAvatarsDir = path.join(VOLUME_DIR, 'uploads', 'chat_avatars');
 if (!fs.existsSync(giftsDir)) fs.mkdirSync(giftsDir, { recursive: true });
 if (!fs.existsSync(profileMediaDir)) fs.mkdirSync(profileMediaDir, { recursive: true });
 if (!fs.existsSync(chatAvatarsDir)) fs.mkdirSync(chatAvatarsDir, { recursive: true });
