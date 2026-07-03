@@ -15,6 +15,9 @@
     "verify:mobile": "node scripts/verify-mobile.js",
     "verify": "node scripts/verify-mobile.js"
   },
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "devDependencies": {
     "concurrently": "^9.1.2"
   }
